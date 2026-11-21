@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Mood Diary</title>
+<title>I Have A Question...</title>
+<style>
+body { text-align: center; font-family: Arial; background: #ffe0ec; margin-top: 80px; }
+h1 { font-size: 35px; }
+button { font-size: 22px; padding: 15px 30px; border: none; border-radius: 15px; cursor: pointer; margin: 10px; }
+#yesBtn { background: #ff2e63; color: white; }
+#noBtn { background: white; color: black; position: absolute; }
+#msg { font-size: 25px; margin-top: 20px; color: #d6336c; font-weight: bold; }
+</style>
 </head>
-<body style="text-align:center; font-family: Arial; background-color: #FFF0F5;">
+<body>
 
-  <h1>Hi, I am Sananda</h1>
-  <p>How is my mood today? Click a button!</p>
+<h1 id="question">Will you go on a date with me?</h1>
+<img src="https://media.tenor.com/ivdV4T9t5PAAAAAC/cat-please.gif" width="250"><br><br>
 
-  <button onclick="showMood('happy')">Happy</button>
-  <button onclick="showMood('sad')">Sad</button>
-  <button onclick="showMood('bored')">Bored</button>
-  <button onclick="showMood('excited')">Excited</button>
+<button id="yesBtn" onclick="yesClick()">YES</button>
+<button id="noBtn" onmouseover="moveNo()" onclick="moveNo()">NO</button>
 
-  <h2 id="message"></h2>
+<p id="msg"></p>
 
-  <script>
-    function showMood(mood) {
-      let text = "";
-      if (mood == 'happy') {
-        text = "Today I am very happy! Everything feels good!";
-      }
-      else if (mood == 'sad') {
-        text = "Today I feel a little sad. I need some rest.";
-      }
-      else if (mood == 'bored') {
-        text = "I am feeling bored... Let's make something new!";
-      }
-      else if (mood == 'excited') {
-        text = "Today I am super excited! Something new will happen!";
-      }
-      document.getElementById("message").innerText = text;
-    }
-  </script>
-
+<script>
+let count = 0;
+function moveNo() {
+  count++;
+  let btn = document.getElementById("noBtn");
+  let x = Math.random() * 250;
+  let y = Math.random() * 250;
+  btn.style.left = x + "px";
+  btn.style.top = (200 + y) + "px";
+  let msgs = ["Nope, NO is not an option!", "Oops, wrong button!", "Click YES!", "Why are you running? Just say YES!", "The NO button is scared!"];
+  document.getElementById("msg").innerText = msgs[count % msgs.length];
+}
+function yesClick() {
+  document.body.innerHTML = "<h1 style='font-size:50px; margin-top:100px;'>YAYYY! I KNEW IT!</h1><h2>So, when are we going on our date?</h2><p style='font-size:40px;'>❤️🎉😍❤️🎉😍</p><p style='font-size:25px;'>Take a screenshot and send it to me!</p>";
+}
+</script>
 </body>
 </html>
