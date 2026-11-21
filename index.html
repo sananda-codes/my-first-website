@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sananda's World</title>
-<style>
-body { background: #ffe6f0; text-align: center; font-family: Arial; }
-h1 { color: #ff1493; font-size: 50px; }
-p { color: #333; font-size: 20px; }
-.box { background: white; padding: 20px; margin: 20px; border-radius: 20px; }
-button { background: #ff1493; color: white; padding: 12px 25px; border: none; border-radius: 20px; font-size: 18px; }
-</style>
+  <title>My Mood Diary</title>
 </head>
-<body>
+<body style="text-align:center; font-family: Arial; background-color: #FFF0F5;">
 
-<h1>Hi, I am Sananda 💖</h1>
-<p>Welcome to my little world!</p>
+  <h1>Hi, I am Sananda</h1>
+  <p>How is my mood today? Click a button!</p>
 
-<div class="box">
-<h2>About Me ✨</h2>
-<p>I love to laugh, I love to dream.</p>
-<p>This is my first website, I made it myself!</p>
-</div>
+  <button onclick="showMood('happy')">Happy</button>
+  <button onclick="showMood('sad')">Sad</button>
+  <button onclick="showMood('bored')">Bored</button>
+  <button onclick="showMood('excited')">Excited</button>
 
-<div class="box">
-<h2>My Favourites 💕</h2>
-<p>🎵 Music - 📚 Stories - 🍫 Chocolate - 🌸 Flowers</p>
-</div>
+  <h2 id="message"></h2>
 
-<button onclick="alert('Thank you for visiting my website! 💖')">Click Me</button>
-
-<p><br>Made with ❤️ by Sananda</p>
+  <script>
+    function showMood(mood) {
+      let text = "";
+      if (mood == 'happy') {
+        text = "Today I am very happy! Everything feels good!";
+      }
+      else if (mood == 'sad') {
+        text = "Today I feel a little sad. I need some rest.";
+      }
+      else if (mood == 'bored') {
+        text = "I am feeling bored... Let's make something new!";
+      }
+      else if (mood == 'excited') {
+        text = "Today I am super excited! Something new will happen!";
+      }
+      document.getElementById("message").innerText = text;
+    }
+  </script>
 
 </body>
 </html>
